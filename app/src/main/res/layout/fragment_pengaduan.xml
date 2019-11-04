@@ -3,11 +3,68 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+   <ImageView
+       android:id="@+id/iv_pengaduan"
+       android:layout_width="match_parent"
+       android:layout_height="230dp"
+       android:background="@android:color/darker_gray"
+       />
+
     <TextView
+        android:id="@+id/tv_halo"
+        android:layout_below="@+id/iv_pengaduan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PENGADUAN"
-        android:textSize="50dp"
-        android:layout_centerInParent="true"/>
+        android:text="Halo,"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        />
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_below="@+id/tv_halo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:maxLines="1"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_below="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:text="@string/pengaduan_desc"
+        android:layout_marginEnd="25dp"
+        android:justificationMode="inter_word"
+        />
+
+    <Button
+        android:id="@+id/btn_ayo_lapor"
+        android:layout_below="@id/tv_desc"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:text="Ayo Laporkan!"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/bg_btn_login"
+
+        />
 
 </RelativeLayout>

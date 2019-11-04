@@ -1,18 +1,19 @@
 package digitalusus.net.ui.activity.auth
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import android.widget.ViewAnimator
 import digitalusus.net.R
 import digitalusus.net.model.User
+import digitalusus.net.model.UserResponse
 import digitalusus.net.ui.activity.main.MainActivity
+import digitalusus.net.util.Preferences
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_login.*
+
+
 
 class LoginActivity : AppCompatActivity(), LoginView {
 
@@ -28,6 +29,13 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
         validateForm()
         setUpFont()
+    }
+    override fun onStart() {
+        super.onStart()
+        if (Preferences.getStatus(this)) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
     }
 
     private fun setUpFont() {
@@ -69,9 +77,16 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     }
 
-    override fun onDataCompleteFromApi(data: User) {
+    private fun doPref(data: UserResponse){
+        Preferences.setName(this, data.data[0].name)
+        Preferences.setStatus(this,true)
+    }
+
+
+    override fun onDataCompleteFromApi(data: UserResponse) {
         if (data.success){
             dialog.dismiss()
+            doPref(data)
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
             finish()
@@ -82,7 +97,10 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
+
+
     override fun onDataErrorFromApi(throwable: Throwable) {
         Toast.makeText(this, throwable.toString(), Toast.LENGTH_SHORT).show()
     }
+
 }

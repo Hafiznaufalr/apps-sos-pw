@@ -2,6 +2,7 @@ package digitalusus.net.ui.activity.auth
 
 import android.content.Context
 import digitalusus.net.model.User
+import digitalusus.net.model.UserResponse
 import digitalusus.net.network.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,16 +14,16 @@ class LoginPresenter(context: Context) {
     fun doLogin(email: String, password: String) {
         RetrofitService.create()
             .postLogin(email, password)
-            .enqueue(object : Callback<User> {
-                override fun onFailure(call: Call<User>, t: Throwable) {
+            .enqueue(object : Callback<UserResponse> {
+                override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                     loginView.onDataErrorFromApi(t)
                 }
 
                 override fun onResponse(
-                    call: Call<User>,
-                    response: Response<User>
+                    call: Call<UserResponse>,
+                    response: Response<UserResponse>
                 ) {
-                    loginView.onDataCompleteFromApi(response.body() as User)
+                    loginView.onDataCompleteFromApi(response.body() as UserResponse)
                 }
 
             })

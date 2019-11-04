@@ -2,4 +2,5 @@
     <string name="app_name">lapor</string>
     <string name="desc">Kamu menemukan fasilitas di sekolahmu yang rusak? Laporin aja ke SoS (Sobat Sarpra).</string>
     <string name="welcome">Selamat Datang di Sobat Sarpra !</string>
+    <string name="pengaduan_desc">Kamu menemukan fasilitas yang rusak di ruang kelas, lab, ruang guru, aula, serta di semua lingkungan sekolah Kita? Laporin skuy!</string>
 </resources>
