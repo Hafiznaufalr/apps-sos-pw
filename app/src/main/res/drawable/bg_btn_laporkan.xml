@@ -6,7 +6,8 @@
     android:width="312dp"
     android:height="48dp"
     android:viewportWidth="312"
-    android:viewportHeight="48">
+    android:viewportHeight="48"
+    tools:ignore="VectorRaster">
 
     <group>
 
@@ -14,7 +15,15 @@
             android:pathData="M5 0H307C309.761 0 312 2.23858 312 5V43C312 45.7614 309.761 48 307 48H5C2.23858 48 0 45.7614 0 43V5C0 2.23858 2.23858 0 5 0Z"
             tools:ignore="VectorRaster" />
 
-        <group>
+        <group
+            android:translateX="0.824"
+            android:translateY="13.094"
+            android:pivotX="156"
+            android:pivotY="24"
+            android:scaleX="1.192"
+            android:scaleY="50.375"
+            android:rotation="-180"
+            >
 
             <path
                 android:pathData="M0 0V48H312V0"
@@ -31,12 +40,12 @@
                         >
 
                         <item
-                            android:color="#FF306E"
+                            android:color="#FBAD16"
                             android:offset="0"
                             />
 
                         <item
-                            android:color="#FF4259"
+                            android:color="#FF9A1F"
                             android:offset="1"
                             />
 
@@ -51,6 +60,4 @@
     </group>
 
 </vector>
-
-
 

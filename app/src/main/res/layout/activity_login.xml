@@ -32,6 +32,7 @@
         android:layout_marginRight="25dp"
         android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
+        android:fontFamily="@font/sbold"
         />
 
     <TextView
@@ -46,6 +47,7 @@
         android:layout_marginRight="25dp"
         android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
+        android:fontFamily="@font/sreguler"
         />
 
     <EditText
@@ -61,6 +63,7 @@
         android:layout_marginRight="25dp"
         android:background="@drawable/bg_et1"
         android:padding="15sp"
+        android:fontFamily="@font/sreguler"
         />
     <EditText
         android:layout_width="350dp"
@@ -75,6 +78,7 @@
         android:layout_marginRight="25dp"
         android:background="@drawable/bg_et1"
         android:padding="15sp"
+        android:fontFamily="@font/sreguler"
         />
     <Button
         android:layout_width="350dp"
@@ -89,6 +93,7 @@
         android:textSize="20sp"
         android:textColor="@android:color/white"
         android:background="@drawable/bg_btn_login"
+        android:fontFamily="@font/sbold"
 
         />
 

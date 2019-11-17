@@ -1,5 +1,8 @@
 package digitalusus.net.ui.fragment.pengaduan
 
-interface PengaduanFragmentView {
+import digitalusus.net.model.PostResponse
 
+interface PengaduanFragmentView {
+    fun onDataCompleteFromApi(data:PostResponse)
+    fun onDataErrorFromApi(throwable: Throwable)
 }

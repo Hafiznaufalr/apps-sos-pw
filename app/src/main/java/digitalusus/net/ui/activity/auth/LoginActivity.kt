@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import digitalusus.net.R
 import digitalusus.net.model.User
 import digitalusus.net.model.UserResponse
@@ -26,9 +27,8 @@ class LoginActivity : AppCompatActivity(), LoginView {
         setContentView(R.layout.activity_login)
         presenter = LoginPresenter(this)
         dialog = SpotsDialog.Builder().setContext(this).build() as SpotsDialog
-
         validateForm()
-        setUpFont()
+        btn_login.transformationMethod = null
     }
     override fun onStart() {
         super.onStart()
@@ -38,16 +38,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-    private fun setUpFont() {
-        val NBold = Typeface.createFromAsset(assets, "fonts/Nunito-Bold.ttf")
-        val NRegular = Typeface.createFromAsset(assets, "fonts/Nunito-Regular.ttf")
-        tv_welcome.typeface = NBold
-        tv_desc.typeface = NRegular
-        et_email.typeface = NRegular
-        et_password.typeface = NRegular
-        btn_login.typeface = NBold
-        btn_login.transformationMethod = null
-    }
+
 
     private fun validateForm() {
         btn_login.setOnClickListener {
@@ -78,6 +69,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     private fun doPref(data: UserResponse){
+        Preferences.setId(this, data.data[0].id)
         Preferences.setName(this, data.data[0].name)
         Preferences.setStatus(this,true)
     }

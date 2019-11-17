@@ -7,15 +7,22 @@ import androidx.preference.PreferenceManager
 
 
 object Preferences {
-    private val KEY_ID = "Username_logged_in"
+    private val KEY_ID = 0
     private val KEY_NAME = "Username_logged_in"
-    private val KEY_EMAIL = "Username_logged_in"
-    private val KEY_NIS = "Username_logged_in"
-    private val KEY_AVATAR = "Username_logged_in"
     private val KEY_STATUS = "Status_logged_in"
 
     private fun getSharedPreference(context: Context): SharedPreferences {
         return PreferenceManager.getDefaultSharedPreferences(context)
+    }
+
+    fun setId(context: Context, id: Int) {
+        val editor = getSharedPreference(context).edit()
+        editor.putInt(KEY_ID.toString(), id)
+        editor.apply()
+    }
+
+    fun getId(context: Context): Int {
+        return getSharedPreference(context).getInt(KEY_ID.toString(), 0)
     }
 
     fun setName(context: Context, name: String) {

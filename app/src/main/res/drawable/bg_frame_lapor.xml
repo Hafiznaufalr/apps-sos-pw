@@ -3,31 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:tools="http://schemas.android.com/tools"
-    android:width="312dp"
-    android:height="48dp"
-    android:viewportWidth="312"
-    android:viewportHeight="48">
+    android:width="360dp"
+    android:height="60dp"
+    android:viewportWidth="360"
+    android:viewportHeight="60"
+    >
 
     <group>
 
         <clip-path
-            android:pathData="M5 0H307C309.761 0 312 2.23858 312 5V43C312 45.7614 309.761 48 307 48H5C2.23858 48 0 45.7614 0 43V5C0 2.23858 2.23858 0 5 0Z"
+            android:pathData="M0 0H360V60H0V0Z"
             tools:ignore="VectorRaster" />
 
         <group>
 
             <path
-                android:pathData="M0 0V48H312V0"
+                android:pathData="M0 0V60H360V0"
                 >
 
                 <aapt:attr name="android:fillColor">
 
                     <gradient
                         android:type="linear"
-                        android:startX="78"
-                        android:startY="24"
-                        android:endX="234"
-                        android:endY="24"
+                        android:startX="90"
+                        android:startY="30"
+                        android:endX="270"
+                        android:endY="30"
                         >
 
                         <item
@@ -51,6 +52,4 @@
     </group>
 
 </vector>
-
-
 

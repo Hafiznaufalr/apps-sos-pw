@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/sheet_background"
+    android:id="@+id/bottom_sheet_coordinator"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/sheet_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <View
+        android:id="@+id/bs"
+        android:layout_width="46dp"
+        android:layout_height="3dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bs"
+        />
+    <View
+        android:id="@+id/bs2"
+        android:layout_width="46dp"
+        android:layout_height="3dp"
+        android:layout_below="@id/bs"
+        android:layout_marginTop="3dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bs"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lokasi"
         android:textColor="@android:color/black"
+        android:fontFamily="@font/sreguler"
         android:layout_margin="25dp"
         android:textSize="15sp"
         android:id="@+id/tv_lokasi"
         tools:targetApi="jelly_bean" />
     <EditText
         android:id="@+id/et_lokasi"
+        android:fontFamily="@font/sreguler"
         android:layout_below="@id/tv_lokasi"
         android:layout_width="350dp"
         android:layout_height="60dp"
@@ -23,6 +49,7 @@
         android:layout_marginRight="25dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
+        android:layout_centerHorizontal="true"
         android:padding="15sp"
         android:background="@drawable/bg_rectangle"
         android:hint="Cth: Ruang 27"
@@ -37,24 +64,56 @@
         android:textSize="15sp"
         tools:targetApi="jelly_bean"
         android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp" />
+        android:layout_marginStart="25dp"
+        android:fontFamily="@font/sreguler"
+        />
+    <ImageView
+        android:id="@+id/iv_laporan"
+        android:layout_below="@id/tv_laporankamu"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/darker_gray"
+        />
+    <EditText
+        android:id="@+id/et_isi"
+        android:layout_below="@id/iv_laporan"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"
+        android:padding="15sp"
+        android:background="@drawable/bg_rectangle"
+        android:hint="Cth: Ac Rusak, Kabel Putus"
+        android:fontFamily="@font/sreguler"
+        />
     <Button
         android:id="@+id/btn_lapor"
-        android:layout_below="@id/tv_laporankamu"
+        android:layout_below="@id/et_isi"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:text="Laporkan"
-        android:layout_marginTop="50dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="25dp"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
         android:textColor="@android:color/white"
-        android:background="@drawable/bg_btn_login"
+        android:background="@drawable/bg_btn_laporkan"
+        android:fontFamily="@font/sreguler"
+
 
         />
 
+    </RelativeLayout>
 
 
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
