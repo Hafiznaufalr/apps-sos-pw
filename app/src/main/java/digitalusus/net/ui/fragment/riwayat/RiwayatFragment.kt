@@ -1,12 +1,11 @@
 package digitalusus.net.ui.fragment.riwayat
 
-import android.graphics.Typeface
-import android.icu.util.ValueIterator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,13 +22,30 @@ class RiwayatFragment : Fragment(), RiwayatFragmentView {
     lateinit var presenter: RiwayatFragmentPresenter
     lateinit var rv_riwayat: RecyclerView
     lateinit var adapter: RiwayatFragmentAdapter
+    lateinit var swiper: SwipeRefreshLayout
+    lateinit var pb_riwayat:ProgressBar
+    lateinit var tvPlease: TextView
     private var listRiwayat: MutableList<Report> = mutableListOf()
     private lateinit var layoutManager: LinearLayoutManager
+
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_riwayat, container, false)
+
+    }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         rv_riwayat = view!!.findViewById(R.id.rv_riwayat)
         presenter = RiwayatFragmentPresenter(this)
+        swiper = view!!.findViewById(R.id.swipe_layout)
+        pb_riwayat = view!!.findViewById(R.id.pb_riwayat)
+        tvPlease = view!!.findViewById(R.id.tv_pleasewait)
 
         adapter = RiwayatFragmentAdapter(context!!,listRiwayat)
         layoutManager = LinearLayoutManager(context)
@@ -41,7 +57,7 @@ class RiwayatFragment : Fragment(), RiwayatFragmentView {
     }
 
     private fun refresh() {
-        swipe_layout.setOnRefreshListener {
+        swiper.setOnRefreshListener {
             loadRiwayat()
         }
     }
@@ -52,32 +68,25 @@ class RiwayatFragment : Fragment(), RiwayatFragmentView {
     }
 
     override fun onDataCompleteFromApi(data: ReportResponse) {
-        swipe_layout.isRefreshing = false
-        pb_riwayat.visibility = View.VISIBLE
-        listRiwayat.clear()
-        listRiwayat.addAll(data.data)
-        adapter.notifyDataSetChanged()
-        if (listRiwayat.size == 0){
+        if (isAdded) {
+            swiper.isRefreshing = false
             listRiwayat.clear()
-            tv_nodata.visibility = View.VISIBLE
+            listRiwayat.addAll(data.data)
+            adapter.notifyDataSetChanged()
+            if (listRiwayat.size == 0) {
+                listRiwayat.clear()
+                tv_nodata.visibility = View.VISIBLE
+            }
+            pb_riwayat.visibility = View.GONE
+            tvPlease.visibility = View.GONE
+
         }
-        pb_riwayat.visibility = View.GONE
 
     }
 
     override fun onDataErrorFromApi(throwable: Throwable) {
         Toast.makeText(context, "Gagal Memuat Data", Toast.LENGTH_SHORT).show()
     }
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_riwayat, container, false)
-
-    }
-
 
 
 

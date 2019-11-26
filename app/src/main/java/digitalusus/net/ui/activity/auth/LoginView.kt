@@ -1,6 +1,5 @@
 package digitalusus.net.ui.activity.auth
 
-import digitalusus.net.model.User
 import digitalusus.net.model.UserResponse
 
 interface LoginView{

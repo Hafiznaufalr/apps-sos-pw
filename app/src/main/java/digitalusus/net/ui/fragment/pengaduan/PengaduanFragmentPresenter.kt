@@ -6,15 +6,16 @@ import digitalusus.net.model.UserResponse
 import digitalusus.net.network.RetrofitService
 import digitalusus.net.ui.activity.auth.LoginView
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class PengaduanFragmentPresenter(val pengaduanFragmentView: PengaduanFragmentView) {
-    fun doPostReport(id:Int,
-                     ruang:String,
-                     isi:String,
-                     gambar:String)
+    fun doPostReport(id:RequestBody,
+                     ruang:RequestBody,
+                     isi:RequestBody,
+                     gambar:MultipartBody.Part)
     {
         RetrofitService.create()
             .postReport(id, ruang, isi, gambar)

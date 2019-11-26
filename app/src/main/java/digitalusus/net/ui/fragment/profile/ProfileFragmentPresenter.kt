@@ -21,7 +21,7 @@ class ProfileFragmentPresenter(private val profileFragmentView: ProfileFragmentV
                     call: Call<UserResponse>,
                     response: Response<UserResponse>
                 ) {
-                    profileFragmentView.loadUser(response.body() as UserResponse)
+                    profileFragmentView.onDataCompleteFromApi(response.body() as UserResponse)
                 }
 
             })

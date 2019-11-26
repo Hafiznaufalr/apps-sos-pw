@@ -3,6 +3,7 @@ package digitalusus.net.network
 import digitalusus.net.model.*
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
+import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -20,10 +21,10 @@ interface RetrofitService {
     @Multipart
     @POST("/api/user/reporting")
     fun postReport(
-        @Part id: Int,
-        @Part ruang: String,
-        @Part isi: String,
-        @Part gambar: String
+        @Part("id_user") id: RequestBody,
+        @Part("ruang") ruang: RequestBody,
+        @Part("isi") isi: RequestBody,
+        @Part gambar: MultipartBody.Part
     ): Call<PostResponse>
 
     @GET("/api/user/getReport/{id}")
@@ -43,7 +44,7 @@ interface RetrofitService {
 
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://dd4c5c20.ngrok.io")
+                .baseUrl("https://2720e65c.ngrok.io/")
                 .client(client)
                 .build()
             return retrofit.create(RetrofitService::class.java)

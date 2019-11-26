@@ -8,23 +8,32 @@
     tools:context=".ui.activity.auth.LoginActivity">
 
 
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="44dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/logo"
+        />
 
     <ImageView
         android:id="@+id/iv_login"
+        android:layout_below="@id/iv_logo"
         android:layout_width="320dp"
         android:layout_height="160dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:background="@android:color/darker_gray"
+        android:src="@drawable/iv_login"
         />
 
     <TextView
         android:id="@+id/tv_welcome"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_below="@id/iv_login"
         android:text="@string/welcome"
         android:layout_marginTop="25dp"
@@ -41,7 +50,7 @@
         android:id="@+id/tv_desc"
         android:layout_below="@id/tv_welcome"
         android:text="@string/desc"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
@@ -94,8 +103,8 @@
         android:textColor="@android:color/white"
         android:background="@drawable/bg_btn_login"
         android:fontFamily="@font/sbold"
-
-        />
+        android:foreground="?android:attr/selectableItemBackground"
+        tools:ignore="UnusedAttribute" />
 
 
 </RelativeLayout>
