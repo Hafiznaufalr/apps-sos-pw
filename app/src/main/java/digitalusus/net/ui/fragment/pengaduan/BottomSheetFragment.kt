@@ -57,8 +57,13 @@ class BottomSheetFragment : BottomSheetDialogFragment(), PengaduanFragmentView {
     private fun pickImage() {
         iv_laporan.setOnClickListener {
             if(EasyPermissions.hasPermissions(context!!,android.Manifest.permission.CAMERA)) {
-                val takePicture = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                startActivityForResult(takePicture, IMAGE_CAPTURE_CODE)
+                if(EasyPermissions.hasPermissions(context!!,android.Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    val takePicture = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                    startActivityForResult(takePicture, IMAGE_CAPTURE_CODE)
+                }
+                else{
+                    EasyPermissions.requestPermissions(this,"This application need your permission to access photo gallery.",992,android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                }
             }
             else{
                 // tampilkan permission request saat belum mendapat permission dari user
@@ -74,6 +79,7 @@ class BottomSheetFragment : BottomSheetDialogFragment(), PengaduanFragmentView {
         if(data.success){
             dialog.dismiss()
             Toast.makeText(context, "Berhasil", Toast.LENGTH_SHORT).show()
+
         }
     }
 

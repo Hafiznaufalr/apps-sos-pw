@@ -4,6 +4,159 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".ui.activity.detail.DetailActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/decor_detail"
+        />
+
+    <TextView
+        android:id="@+id/ic_arrow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:drawableStart="@drawable/ic_arrow_back"
+        />
+
+    <TextView
+        android:id="@+id/tv_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ic_arrow"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:text="Detail Laporan"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:fontFamily="@font/sbold"
+        />
+
+    <TextView
+        android:id="@+id/tv_detail_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/white"
+        android:padding="4dp"
+        android:textSize="14sp"
+        android:background="@drawable/bg_menunggu"
+        android:text="status"
+        android:textAlignment="center"
+        android:layout_marginTop="25sp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/sreguler"
+        />
+
+    <TextView
+        android:id="@+id/tv_detail_date"
+        android:layout_below="@id/tv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tanggal"
+        android:textSize="13sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="25dp"
+        android:fontFamily="@font/sreguler"
+
+        />
+    <View
+        android:id="@+id/divider"
+        android:layout_below="@id/tv_detail_date"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_lokasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="Lokasi"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="25sp"
+        android:textSize="16sp"
+        android:fontFamily="@font/sbold"
+        android:layout_below="@id/divider"
+        />
+    <TextView
+        android:id="@+id/tv_detail_lokasi"
+        android:layout_below="@id/tv_lokasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="25dp"
+        android:text="lokasi"
+        android:fontFamily="@font/sreguler"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_isi_laporan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="Isi Laporan Kamu"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="25sp"
+        android:textSize="16sp"
+        android:fontFamily="@font/sbold"
+        android:layout_below="@id/tv_detail_lokasi"
+        />
+
+
+    <ImageView
+        android:id="@+id/iv_laporan"
+        android:layout_below="@id/tv_isi_laporan"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ph_iv"
+        />
+    <TextView
+        android:id="@+id/tv_detail_isi"
+        android:layout_below="@id/iv_laporan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:text="laporan"
+        android:justificationMode="inter_word"
+        android:fontFamily="@font/sreguler"
+        />
+
+    <Button
+        android:id="@+id/btn_batalkan"
+        android:layout_below="@id/tv_detail_isi"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:text="Batalkan"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textColor="#FF2E67"
+        android:background="@drawable/bg_keluar"
+        android:fontFamily="@font/sbold"
+        android:foreground="?android:attr/selectableItemBackground"
+        tools:ignore="UnusedAttribute"
+        android:visibility="gone"
+        tools:visibility="visible"
+        />
 
 </RelativeLayout>

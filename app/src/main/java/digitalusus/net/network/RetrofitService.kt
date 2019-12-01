@@ -31,7 +31,7 @@ interface RetrofitService {
     fun getListReport(@Path("id") id: Int): Call<ReportResponse>
 
     @GET("/api/user/getReportOne/{id}")
-    fun getDetailReport(@Path("id") id: Int): Call<Report>
+    fun getDetailReport(@Path("id") id: Int): Call<ReportResponse>
 
     @GET("/api/user/getUser/{id}")
     fun getUserProfile(@Path("id") id: Int): Call<UserResponse>
@@ -39,12 +39,12 @@ interface RetrofitService {
     companion object {
         fun create(): RetrofitService {
             val interceptor = HttpLoggingInterceptor()
-            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+            interceptor.apply { interceptor.level = HttpLoggingInterceptor.Level.BODY }
             val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://2720e65c.ngrok.io/")
+                .baseUrl("https://29400102.ngrok.io/")
                 .client(client)
                 .build()
             return retrofit.create(RetrofitService::class.java)

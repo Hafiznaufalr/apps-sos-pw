@@ -48,12 +48,16 @@ class ProfileFragment : Fragment(), ProfileFragmentView {
         tvPlease = view!!.findViewById(R.id.tv_pleasewait)
         mainUi = view!!.findViewById(R.id.rl_content)
         mainUi.visibility = View.GONE
-
-
-
         loadProfile()
+        refresh()
         logout()
         btn_logout.transformationMethod = null
+    }
+
+    private fun refresh() {
+        swiper.setOnRefreshListener {
+            loadProfile()
+        }
     }
 
     private fun logout() {
@@ -71,6 +75,7 @@ class ProfileFragment : Fragment(), ProfileFragmentView {
         presenter.getProfil(idUser)
     }
     override fun onDataCompleteFromApi(data: UserResponse) {
+        swiper.isRefreshing = false
         if(isAdded) {
             tvName.text = data.data[0].name
             tvEmail.text = data.data[0].email

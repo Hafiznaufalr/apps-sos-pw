@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/swipe_layout"
+    android:background="@android:color/white"
     >
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            tools:visibility="gone"
             />
 
         <TextView
@@ -41,8 +44,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="192dp"
                 android:background="@drawable/bg_profile"
-
                 />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="25dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:text="Akun Kamu"
+                android:fontFamily="@font/sbold"
+                />
+
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
@@ -53,32 +67,93 @@
                 android:src="@drawable/iv_profil"
                 />
 
+            <ImageView
+                android:id="@+id/ic_name"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20sp"
+                android:layout_below="@id/profile_image"
+                android:src="@drawable/ic_name"
+                />
+            <TextView
+                android:id="@+id/label_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_image"
+                android:layout_toEndOf="@id/ic_name"
+                android:layout_marginStart="12sp"
+                android:text="Nama"
+                android:fontFamily="@font/sreguler"
+                android:textSize="16sp"
+                />
             <TextView
                 android:id="@+id/tv_profile_name"
-                android:layout_below="@id/profile_image"
-                android:layout_width="wrap_content"
+                android:layout_below="@id/label_name"
+                android:layout_toEndOf="@id/ic_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="name"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="10dp"
+                android:text="nama"
+                android:textColor="@android:color/black"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/sreguler"/>
+            <View
+                android:id="@+id/divider_nama"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_profile_name"
+                android:layout_toEndOf="@id/ic_name"
+                android:background="@android:color/darker_gray"
+                android:layout_marginStart="10dp"
+
+                />
+            <ImageView
+                android:id="@+id/ic_email"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="20sp"
+                android:layout_below="@id/divider_nama"
+                android:src="@drawable/ic_email"
+                />
+            <TextView
+                android:id="@+id/label_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider_nama"
+                android:layout_toEndOf="@id/ic_email"
+                android:layout_marginStart="12sp"
+                android:layout_marginTop="20dp"
+                android:text="Alamat Email"
                 android:fontFamily="@font/sreguler"
+                android:textSize="16sp"
                 />
             <TextView
                 android:id="@+id/tv_profile_email"
-                android:layout_below="@id/tv_profile_name"
-                android:layout_width="wrap_content"
+                android:layout_below="@id/label_email"
+                android:layout_toEndOf="@id/ic_email"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="email"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="10dp"
-                android:fontFamily="@font/sreguler"
+                android:text="Email"
+                android:textColor="@android:color/black"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/sreguler"/>
+            <View
+                android:id="@+id/divider_email"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_profile_email"
+                android:layout_toEndOf="@id/ic_email"
+                android:background="@android:color/darker_gray"
+                android:layout_marginStart="10dp"
+
                 />
 
             <Button
                 android:id="@+id/btn_logout"
-                android:layout_below="@id/tv_profile_email"
+                android:layout_below="@id/divider_email"
                 android:layout_width="350dp"
                 android:layout_height="60dp"
                 android:text="Keluar"

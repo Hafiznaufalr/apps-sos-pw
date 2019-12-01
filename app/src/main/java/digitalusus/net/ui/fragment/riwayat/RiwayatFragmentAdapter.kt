@@ -28,13 +28,14 @@ class RiwayatFragmentAdapter(val context: Context,
     override fun onBindViewHolder(holder: RiwayatHolder, position: Int) {
         val data = result[position]
         val status = holder.itemView.tv_item_status
-        holder.itemView.tv_item_lokasi.text = "Lokasi : Ruang" + data.ruang
+        holder.itemView.tv_item_lokasi.text = "Lokasi : " + data.ruang
         holder.itemView.tv_item_date.text = data.createdAt
         holder.itemView.tv_item_isi.text = data.isi
         holder.itemView.tv_item_status.text = data.status
         when {
             status.text == "menunggu" -> status.setBackgroundResource(R.drawable.bg_menunggu)
             status.text == "proses" -> status.setBackgroundResource(R.drawable.bg_proses)
+            status.text == "ditolak" -> status.setBackgroundResource(R.drawable.bg_ditolak)
             else -> status.setBackgroundResource(R.drawable.bg_selesai)
         }
 

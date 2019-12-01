@@ -72,6 +72,7 @@ class RiwayatFragment : Fragment(), RiwayatFragmentView {
             swiper.isRefreshing = false
             listRiwayat.clear()
             listRiwayat.addAll(data.data)
+            listRiwayat.reverse()
             adapter.notifyDataSetChanged()
             if (listRiwayat.size == 0) {
                 listRiwayat.clear()
