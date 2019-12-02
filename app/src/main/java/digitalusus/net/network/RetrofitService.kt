@@ -18,6 +18,13 @@ interface RetrofitService {
         @Field("password") password: String
     ): Call<UserResponse>
 
+
+    @FormUrlEncoded
+    @POST("api/user/batalReport")
+    fun cancelReport(
+        @Field("id") id: Int
+    ): Call<CancelResponse>
+
     @Multipart
     @POST("/api/user/reporting")
     fun postReport(
@@ -27,14 +34,14 @@ interface RetrofitService {
         @Part gambar: MultipartBody.Part
     ): Call<PostResponse>
 
-    @GET("/api/user/getReport/{id}")
-    fun getListReport(@Path("id") id: Int): Call<ReportResponse>
+    @GET("/api/user/getReport/{id_user}")
+    fun getListReport(@Path("id_user") id: Int): Call<ReportResponse>
 
     @GET("/api/user/getReportOne/{id}")
     fun getDetailReport(@Path("id") id: Int): Call<ReportResponse>
 
-    @GET("/api/user/getUser/{id}")
-    fun getUserProfile(@Path("id") id: Int): Call<UserResponse>
+    @GET("/api/user/getUser/{id_user}")
+    fun getUserProfile(@Path("id_user") id: Int): Call<UserResponse>
 
     companion object {
         fun create(): RetrofitService {
@@ -44,7 +51,7 @@ interface RetrofitService {
 
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://29400102.ngrok.io/")
+                .baseUrl("https://ab6a6369.ngrok.io/")
                 .client(client)
                 .build()
             return retrofit.create(RetrofitService::class.java)

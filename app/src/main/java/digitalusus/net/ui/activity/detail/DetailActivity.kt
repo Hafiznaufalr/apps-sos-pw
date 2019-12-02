@@ -9,11 +9,14 @@ import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import digitalusus.net.R
+import digitalusus.net.model.CancelResponse
 import digitalusus.net.model.Report
 import digitalusus.net.model.ReportResponse
 import dmax.dialog.SpotsDialog
 
 class DetailActivity : AppCompatActivity(), DetailView {
+
+
     lateinit var tv_detail_date: TextView
     lateinit var tv_detail_isi: TextView
     lateinit var tv_detail_lokasi: TextView
@@ -41,9 +44,17 @@ class DetailActivity : AppCompatActivity(), DetailView {
             onBackPressed()
         }
         getDetailReport()
+        cancelReport()
     }
 
+    private fun cancelReport() {
+        btn_batalkan.setOnClickListener {
+            dialog.show()
+            val idReport = intent.getIntExtra("idReport", 0)
+            presenter.cancelReport(idReport)
+        }
 
+    }
 
 
     private fun getDetailReport() {
@@ -52,6 +63,15 @@ class DetailActivity : AppCompatActivity(), DetailView {
         presenter.getDetail(idReport)
     }
 
+
+
+    override fun onDataStatusChanged(data: CancelResponse) {
+        dialog.dismiss()
+        if(data.success){
+            Toast.makeText(this, "Report Dibatalkan", Toast.LENGTH_SHORT).show()
+            onBackPressed()
+        }
+    }
 
     override fun onDataCompleteFromApi(data: ReportResponse) {
         if(data.success) {
@@ -69,7 +89,9 @@ class DetailActivity : AppCompatActivity(), DetailView {
                     btn_batalkan.visibility = View.VISIBLE
                 }
                 tv_detail_status.text == "proses" -> tv_detail_status.setBackgroundResource(R.drawable.bg_proses)
-                else -> tv_detail_status.setBackgroundResource(R.drawable.bg_selesai)
+                tv_detail_status.text == "selesai" -> tv_detail_status.setBackgroundResource(R.drawable.bg_selesai)
+
+                else -> tv_detail_status.setBackgroundResource(R.drawable.bg_ditolak)
             }
         }
     }

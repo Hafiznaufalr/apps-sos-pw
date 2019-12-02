@@ -35,8 +35,8 @@ class RiwayatFragmentAdapter(val context: Context,
         when {
             status.text == "menunggu" -> status.setBackgroundResource(R.drawable.bg_menunggu)
             status.text == "proses" -> status.setBackgroundResource(R.drawable.bg_proses)
-            status.text == "ditolak" -> status.setBackgroundResource(R.drawable.bg_ditolak)
-            else -> status.setBackgroundResource(R.drawable.bg_selesai)
+            status.text == "selesai" -> status.setBackgroundResource(R.drawable.bg_selesai)
+            else -> status.setBackgroundResource(R.drawable.bg_ditolak)
         }
 
 

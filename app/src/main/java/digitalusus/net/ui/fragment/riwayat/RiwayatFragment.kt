@@ -67,6 +67,11 @@ class RiwayatFragment : Fragment(), RiwayatFragmentView {
         presenter.getListReport(idUser)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        refresh()
+    }
+
     override fun onDataCompleteFromApi(data: ReportResponse) {
         if (isAdded) {
             swiper.isRefreshing = false
