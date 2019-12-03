@@ -79,7 +79,9 @@ class BottomSheetFragment : BottomSheetDialogFragment(), PengaduanFragmentView {
         if(data.success){
             dialog.dismiss()
             Toast.makeText(context, "Berhasil", Toast.LENGTH_SHORT).show()
-
+        }else{
+            dialog.dismiss()
+            Toast.makeText(context, "Terlalu Banyak Permintaan", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -111,7 +113,7 @@ class BottomSheetFragment : BottomSheetDialogFragment(), PengaduanFragmentView {
 
     private fun getImageUri(context: Context, bitmap: Bitmap): Uri {
         val bytes = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bytes)
         val path = Images.Media.insertImage(context.contentResolver, bitmap, "Title", null)
         return Uri.parse(path)
     }

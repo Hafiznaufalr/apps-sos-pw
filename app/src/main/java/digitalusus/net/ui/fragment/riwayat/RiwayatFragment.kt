@@ -1,5 +1,6 @@
 package digitalusus.net.ui.fragment.riwayat
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -67,9 +68,9 @@ class RiwayatFragment : Fragment(), RiwayatFragmentView {
         presenter.getListReport(idUser)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        refresh()
+    override fun onResume() {
+        super.onResume()
+        loadRiwayat()
     }
 
     override fun onDataCompleteFromApi(data: ReportResponse) {

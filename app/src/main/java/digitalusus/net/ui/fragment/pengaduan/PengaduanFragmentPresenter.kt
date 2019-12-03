@@ -1,10 +1,7 @@
 package digitalusus.net.ui.fragment.pengaduan
 
-import android.content.Context
 import digitalusus.net.model.PostResponse
-import digitalusus.net.model.UserResponse
 import digitalusus.net.network.RetrofitService
-import digitalusus.net.ui.activity.auth.LoginView
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call

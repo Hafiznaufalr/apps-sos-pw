@@ -1,21 +1,14 @@
 package digitalusus.net.ui.fragment.pengaduan
 
 import android.annotation.SuppressLint
-import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import digitalusus.net.R
 import digitalusus.net.util.Preferences
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.bottom_sheet.*
 import kotlinx.android.synthetic.main.fragment_pengaduan.*
-import kotlinx.android.synthetic.main.fragment_pengaduan.tv_desc
-
 
 
 class PengaduanFragment : Fragment() {

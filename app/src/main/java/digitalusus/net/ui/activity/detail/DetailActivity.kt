@@ -10,7 +10,6 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import digitalusus.net.R
 import digitalusus.net.model.CancelResponse
-import digitalusus.net.model.Report
 import digitalusus.net.model.ReportResponse
 import dmax.dialog.SpotsDialog
 
@@ -69,9 +68,13 @@ class DetailActivity : AppCompatActivity(), DetailView {
         dialog.dismiss()
         if(data.success){
             Toast.makeText(this, "Report Dibatalkan", Toast.LENGTH_SHORT).show()
-            onBackPressed()
+            getDetailReport()
+            btn_batalkan.visibility = View.GONE
+
         }
     }
+
+
 
     override fun onDataCompleteFromApi(data: ReportResponse) {
         if(data.success) {

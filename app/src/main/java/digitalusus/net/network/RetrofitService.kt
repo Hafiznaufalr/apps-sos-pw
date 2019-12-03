@@ -51,7 +51,7 @@ interface RetrofitService {
 
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://ab6a6369.ngrok.io/")
+                .baseUrl("https://710e8007.ngrok.io/")
                 .client(client)
                 .build()
             return retrofit.create(RetrofitService::class.java)

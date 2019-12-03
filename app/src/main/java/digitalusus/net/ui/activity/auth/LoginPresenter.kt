@@ -1,7 +1,6 @@
 package digitalusus.net.ui.activity.auth
 
 import android.content.Context
-import digitalusus.net.model.User
 import digitalusus.net.model.UserResponse
 import digitalusus.net.network.RetrofitService
 import retrofit2.Call

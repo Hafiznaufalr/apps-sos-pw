@@ -1,13 +1,10 @@
 package digitalusus.net.ui.activity.auth
 
 import android.content.Intent
-import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.bumptech.glide.Glide
 import digitalusus.net.R
-import digitalusus.net.model.User
 import digitalusus.net.model.UserResponse
 import digitalusus.net.ui.activity.main.MainActivity
 import digitalusus.net.util.Preferences

@@ -2,11 +2,8 @@ package digitalusus.net.ui.activity.detail
 
 import android.content.Context
 import digitalusus.net.model.CancelResponse
-import digitalusus.net.model.Report
 import digitalusus.net.model.ReportResponse
-import digitalusus.net.model.UserResponse
 import digitalusus.net.network.RetrofitService
-import digitalusus.net.ui.activity.auth.LoginView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
